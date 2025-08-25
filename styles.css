@@ -533,9 +533,9 @@ body.light-mode .project-links .btn-github {
 .info-value {
     color: #bfc9d1;
     justify-content:left;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     display: block;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 }
 
 .info-socials {
