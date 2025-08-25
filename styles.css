@@ -13,8 +13,8 @@ html {
     --bg-main: #0f0c29;
     --bg-section: rgba(15, 12, 41, 0.7);
     --bg-section-light: rgba(255,255,255,0.7);
-    --text-main: #fff;
-    --text-secondary: #e0e6f7;
+    --text-main: #8a7e7e;
+    --text-secondary: #cfd9f4;
     --accent: hsl(202, 85%, 76%);
     --accent2: #97faf8;
     --shadow: rgba(78, 205, 196, 0.18);
