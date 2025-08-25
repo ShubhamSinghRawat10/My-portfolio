@@ -2,10 +2,12 @@
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
+const navOverlay = document.querySelector('.nav-overlay');
 
 burger.addEventListener('click', () => {
-    
     nav.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
     
     navLinks.forEach((link, index) => {
         if (link.style.animation) {
@@ -16,6 +18,24 @@ burger.addEventListener('click', () => {
     });
     
     burger.classList.toggle('toggle');
+});
+
+// Close menu when clicking overlay
+navOverlay.addEventListener('click', () => {
+    nav.classList.remove('active');
+    navOverlay.classList.remove('active');
+    burger.classList.remove('toggle');
+    document.body.style.overflow = 'auto';
+});
+
+// Close menu when clicking on a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        burger.classList.remove('toggle');
+        document.body.style.overflow = 'auto';
+    });
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
