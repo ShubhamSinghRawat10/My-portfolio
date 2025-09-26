@@ -9,8 +9,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Ensure anchor targets are not hidden under the fixed navbar */
-section { scroll-margin-top: 84px; }
+/* removed extra scroll-margin adjustments to revert to original */
 
 :root {
     --bg-main: #0f0c29;
@@ -34,11 +33,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Fluid media for responsiveness */
-img, video, canvas {
-    max-width: 100%;
-    height: auto;
-}
+/* revert responsive media tweak */
 
 #bg-video {
     position: fixed;
@@ -160,7 +155,7 @@ body::before {
 }
 
 .hero {
-    min-height: 100svh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,14 +192,14 @@ body::before {
 }
 
 .hero-content h1 {
-    font-size: clamp(1.9rem, 4.2vw + 0.8rem, 3rem);
+    font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--text-main);
     text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
 }
 
 .hero-content h2 {
-    font-size: clamp(1.1rem, 2.2vw + 0.6rem, 2rem);
+    font-size: 2rem;
     color: var(--accent);
     margin-bottom: 1rem;
 }
@@ -356,7 +351,7 @@ body::before {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
@@ -374,17 +369,17 @@ body::before {
     box-shadow: 0 5px 20px rgba(78, 205, 196, 0.3);
 }
 
-.project-card .project-image img {
+    .project-card .project-image img {
     width: 100%;
-    height: 100%;
+    height: 201px;
     object-fit: cover;
     object-position: top;
     display: block;
     border-bottom: 1px solid #e0e0e0;
-}
+} 
 
 .project-image {
-    height: clamp(160px, 28vw, 220px);
+    height: 200px;
     background-color: #e0e0e0;
 }
 
@@ -502,7 +497,7 @@ body.light-mode .project-links .btn-github {
     box-shadow: 0 4px 32px rgba(0,0,0,0.18);
     padding: 2.5rem 2rem;
     flex: 1 1 340px;
-    min-width: 260px;
+    min-width: 320px;
     max-width: 420px;
     display: flex;
     flex-direction: column;
@@ -825,8 +820,8 @@ body.light-mode .cta-section { background: #ffffff; border: 1px solid #e6eaf0; }
         background-color: var(--accent);
     }
     
-    .hero-content h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
-    .hero-content h2 { font-size: clamp(1rem, 3.5vw, 1.4rem); }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content h2 { font-size: 1.5rem; }
 }
 
 @media screen and (max-width: 480px) {
@@ -850,11 +845,6 @@ body.light-mode .cta-section { background: #ffffff; border: 1px solid #e6eaf0; }
     }
     
     .burger div { width: 22px; height: 2.5px; margin: 4px; }
-
-    /* tighter section paddings on very small devices */
-    .about, .skills-section, .projects, .contact, .education, .certificates, .interests {
-        padding: 3.5rem 6%;
-    }
 }
 
 .cv-btn {
@@ -993,8 +983,8 @@ body.light-mode .cert-item {
 }
 
 .profile-pic {
-    width: clamp(140px, 28vw, 250px);
-    height: clamp(140px, 28vw, 250px);
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     margin-bottom: 2rem;
     object-fit: cover;

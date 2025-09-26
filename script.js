@@ -38,58 +38,12 @@ navLinks.forEach(link => {
     });
 });
 
-// Smooth scroll with header offset and mobile menu close
-const navbarEl = document.querySelector('.navbar');
-function scrollToHash(hash) {
-    if (!hash) return;
-    const target = document.querySelector(hash);
-    if (!target) return;
-    const headerOffset = navbarEl ? navbarEl.offsetHeight + 8 : 0; // add small gap
-    const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-}
-
-function navigateTo(hash) {
-    // 1) Force native jump via hash change (most reliable across browsers)
-    if (location.hash !== hash) {
-        // using replace avoids history pollution from repeated taps
-        history.replaceState(null, '', hash);
-    }
-
-    // 2) Correct for fixed header offset immediately and on next frame
-    scrollToHash(hash);
-    requestAnimationFrame(() => scrollToHash(hash));
-
-    // 3) Safety retry after layout settles
-    setTimeout(() => scrollToHash(hash), 350);
-}
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
         e.preventDefault();
-
-        const wasMenuOpen = nav.classList.contains('active');
-
-        // Close mobile nav first for better UX
-        if (wasMenuOpen) {
-            nav.classList.remove('active');
-            navOverlay.classList.remove('active');
-            burger.classList.remove('toggle');
-            document.body.style.overflow = 'auto';
-
-            // After the slide-out transition, jump + scroll to the section
-            const onEnded = () => {
-                nav.removeEventListener('transitionend', onEnded);
-                navigateTo(hash);
-            };
-            nav.addEventListener('transitionend', onEnded, { once: true });
-            // Fallback in case transitionend doesn't fire
-            setTimeout(() => navigateTo(hash), 420);
-        } else {
-            navigateTo(hash);
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
