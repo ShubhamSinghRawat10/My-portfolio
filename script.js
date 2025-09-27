@@ -221,7 +221,7 @@ if (savedTheme === 'light') {
     }
 
     function pickSparkleColor() {
-        // Light mode: blue, Dark mode: white
+        // Light mode: blue, Dark mode: whit
         if (isLightMode()) {
             return { r: 87, g: 166, b: 255 }; // #57A6FF
         }
