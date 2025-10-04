@@ -28,37 +28,14 @@ burger.addEventListener("click", () => {
 
 navOverlay.addEventListener("click", closeMenu)
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href")
-
-    // Skip if it's just "#" with no target
-    if (targetId === "#") return
-
-    const targetElement = document.querySelector(targetId)
-
-    if (targetElement) {
-      e.preventDefault()
-
-      // Check if mobile menu is open BEFORE closing it
-      const menuWasOpen = nav.classList.contains("active")
-
-      // Close mobile menu immediately if it's open
-      if (menuWasOpen) {
-        closeMenu()
-      }
-
-      // Smooth scroll to target with minimal delay
-      setTimeout(
-        () => {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          })
-        },
-        menuWasOpen ? 100 : 0,
-      )
+document.querySelectorAll('.nav-links a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", () => {
+    // Just close the mobile menu if it's open
+    if (nav.classList.contains("active")) {
+      closeMenu()
     }
+    // Let the browser handle the anchor navigation naturally
+    // No preventDefault, no smooth scroll - just basic anchor behavior
   })
 })
 
