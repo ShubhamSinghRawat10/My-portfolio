@@ -1,4 +1,4 @@
-// Navigation menu functionality
+
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
@@ -20,7 +20,6 @@ burger.addEventListener('click', () => {
     burger.classList.toggle('toggle');
 });
 
-// Close menu when clicking overlay
 navOverlay.addEventListener('click', () => {
     nav.classList.remove('active');
     navOverlay.classList.remove('active');
@@ -28,14 +27,13 @@ navOverlay.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
 });
 
-// Close menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
         navOverlay.classList.remove('active');
         burger.classList.remove('toggle');
         document.body.style.overflow = 'auto';
-    });
+    });
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -43,8 +41,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
-        });
-    });
+        });
+    });
 });
 
 const contactForm = document.getElementById('contact-form');
@@ -55,7 +53,6 @@ contactForm.addEventListener('submit', async function(e) {
     const submitBtn = this.querySelector('.submit-btn');
     const originalText = submitBtn.innerHTML;
     
-    // Show loading state
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
     
@@ -85,7 +82,7 @@ contactForm.addEventListener('submit', async function(e) {
         console.error('Form submission error:', error);
         alert('Failed to send message. Please check your connection and try again.');
     } finally {
-        // Reset button state
+       
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
@@ -122,7 +119,7 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    // Animate skill progress bars when section enters viewport
+   
     const skillSection = document.getElementById('skills');
     const fills = document.querySelectorAll('.progress-fill');
     if (skillSection && fills.length) {
@@ -142,10 +139,8 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Set light theme as default
 document.body.classList.add('light-mode');
 
-// Sparkle background animation
 (function () {
     const canvas = document.getElementById('sparkle-canvas');
     if (!canvas) return;
@@ -157,7 +152,7 @@ document.body.classList.add('light-mode');
     let lastTime = 0;
 
     function isLightMode() {
-        return true; // Always light mode
+        return true; 
     }
 
     function getCssVar(name, fallback) {
@@ -185,7 +180,7 @@ document.body.classList.add('light-mode');
     }
 
     function pickSparkleColor() {
-        // Light mode: blue, Dark mode: white
+        
         if (isLightMode()) {
             return { r: 87, g: 166, b: 255 }; // #57A6FF
         }
@@ -204,7 +199,7 @@ document.body.classList.add('light-mode');
     }
 
     function computeParticleCount() {
-        // Scale with area, capped for performance
+       
         const area = width * height;
         return Math.max(40, Math.min(140, Math.floor(area / 20000)));
     }
