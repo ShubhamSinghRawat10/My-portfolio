@@ -142,44 +142,8 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
-
-function setTheme(mode) {
-    if (mode === 'light') {
-        document.body.classList.add('light-mode');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-    } else {
-        document.body.classList.remove('light-mode');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-    }
-    localStorage.setItem('theme', mode);
-    try {
-        window.dispatchEvent(new CustomEvent('themechange', { detail: { mode } }));
-    } catch (e) {
-        // no-op
-    }
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const isLight = document.body.classList.contains('light-mode');
-        setTheme(isLight ? 'dark' : 'light');
-    });
-}
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    setTheme('light');
-} else {
-    setTheme('dark');
-}
+// Set light theme as default
+document.body.classList.add('light-mode');
 
 // Sparkle background animation
 (function () {
@@ -193,7 +157,7 @@ if (savedTheme === 'light') {
     let lastTime = 0;
 
     function isLightMode() {
-        return document.body.classList.contains('light-mode');
+        return true; // Always light mode
     }
 
     function getCssVar(name, fallback) {
@@ -313,23 +277,7 @@ if (savedTheme === 'light') {
         restart();
     }
 
-    function onThemeChange(e) {
-        canvas.style.display = '';
-        // Refresh particle visuals to match new theme
-        const baseAlpha = isLightMode() ? 0.18 : 0.45;
-        if (!particles.length) {
-            restart();
-        } else {
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].baseAlpha = baseAlpha;
-                particles[i].color = pickSparkleColor();
-            }
-        }
-        if (!running) start();
-    }
-
     window.addEventListener('resize', onResize);
-    window.addEventListener('themechange', onThemeChange);
 
     function start() {
         if (running) return;
