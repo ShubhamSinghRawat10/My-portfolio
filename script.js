@@ -1,41 +1,80 @@
-const burger = document.querySelector(".burger")
-const nav = document.querySelector(".nav-links")
-const navLinks = document.querySelectorAll(".nav-links li")
-const navOverlay = document.querySelector(".nav-overlay")
+// Wait for DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger")
+  const nav = document.querySelector(".nav-links")
+  const navLinks = document.querySelectorAll(".nav-links li")
+  const navOverlay = document.querySelector(".nav-overlay")
 
-function closeMenu() {
-  nav.classList.remove("active")
-  navOverlay.classList.remove("active")
-  burger.classList.remove("toggle")
-  document.body.style.overflow = "auto"
-}
+  function closeMenu() {
+    if (nav) nav.classList.remove("active")
+    if (navOverlay) navOverlay.classList.remove("active")
+    if (burger) burger.classList.remove("toggle")
+    document.body.style.overflow = "auto"
+  }
 
-burger.addEventListener("click", () => {
-  nav.classList.toggle("active")
-  navOverlay.classList.toggle("active")
-  document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "auto"
+  if (burger) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("active")
+      navOverlay.classList.toggle("active")
+      document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "auto"
 
-  navLinks.forEach((link, index) => {
-    if (link.style.animation) {
-      link.style.animation = ""
-    } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`
-    }
-  })
+      navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+          link.style.animation = ""
+        } else {
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`
+        }
+      })
 
-  burger.classList.toggle("toggle")
-})
+      burger.classList.toggle("toggle")
+    })
+  }
 
-navOverlay.addEventListener("click", closeMenu)
+  if (navOverlay) {
+    navOverlay.addEventListener("click", closeMenu)
+  }
 
-document.querySelectorAll('.nav-links a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", () => {
-    // Just close the mobile menu if it's open
-    if (nav.classList.contains("active")) {
-      closeMenu()
-    }
-    // Let the browser handle the anchor navigation naturally
-    // No preventDefault, no smooth scroll - just basic anchor behavior
+  // Handle navigation link clicks
+  document.querySelectorAll(".nav-links a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href")
+
+      // Only handle internal anchor links (not external links or CV)
+      if (href && href.startsWith("#") && href !== "#") {
+        e.preventDefault()
+        e.stopPropagation() // Prevent event bubbling
+
+        const targetSection = document.querySelector(href)
+
+        // Close mobile menu first
+        if (nav && nav.classList.contains("active")) {
+          closeMenu()
+
+          setTimeout(() => {
+            if (targetSection) {
+              const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 60
+              const targetPosition = targetSection.offsetTop - navbarHeight
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              })
+            }
+          }, 400) // Increased from 350ms to 400ms
+        } else {
+          // Desktop - scroll immediately
+          if (targetSection) {
+            const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 60
+            const targetPosition = targetSection.offsetTop - navbarHeight
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            })
+          }
+        }
+      }
+    })
   })
 })
 
