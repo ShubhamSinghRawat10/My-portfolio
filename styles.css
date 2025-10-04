@@ -779,6 +779,7 @@ footer {
 .cta-title {
   font-size: 2rem;
   margin-bottom: 0.6rem;
+  color:#ffffff;
 }
 .cta-subtitle {
   color: var(--text-secondary);
