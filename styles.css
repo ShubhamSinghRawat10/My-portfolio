@@ -9,7 +9,7 @@ html {
     scroll-behavior: smooth;
 }
 section {
-    scroll-margin-top: 100px; /* adjust based on navbar height */
+    scroll-margin-top: 50px; /* adjust based on navbar height */
 }
 
 :root {
