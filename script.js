@@ -27,24 +27,43 @@ navOverlay.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
 });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        navOverlay.classList.remove('active');
-        burger.classList.remove('toggle');
-        document.body.style.overflow = 'auto';
-    });
-});
+// ADD THIS NEW CODE
 
+// A helper function to close the menu, so we don't repeat code
+function closeMenu() {
+    nav.classList.remove('active');
+    navOverlay.classList.remove('active');
+    burger.classList.remove('toggle');
+    document.body.style.overflow = 'auto';
+}
+
+// Close the menu when the overlay is clicked
+navOverlay.addEventListener('click', closeMenu);
+
+// This single block handles all smooth scrolling and menu closing
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    // We listen for clicks on all links that start with '#'
+    anchor.addEventListener('click', function(e) {
+        // 1. Stop the browser's default jump-to-section behavior
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 
+        // 2. Get the section we want to scroll to from the link's href
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        // 3. If the section exists on the page, scroll to it smoothly
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 4. IMPORTANT: If the mobile navigation menu is currently active, close it.
+        if (nav.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+});
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', async function(e) {
