@@ -697,7 +697,7 @@ body.light-mode .project-links .btn-github {
   font-size: 1.22rem;
   padding: 1.2rem 0;
   margin-top: 0.7rem;
-  background: linear-gradient(90deg, #7c3aed 0%, #a855f7 100%);
+  background: linear-gradient(90deg, #ae3aed 0%, #a855f7 100%);
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -739,14 +739,16 @@ footer {
   padding: 5rem 10%;
   background: rgba(15, 12, 41, 0.5);
   backdrop-filter: blur(10px);
+  align-items: center;
+  
 }
 .interests h2 {
-  text-align: left;
-  margin-bottom: 1.8rem;
-  color: var(--text-main);
-  display: flex;
+  text-align: center;
   align-items: center;
-  gap: 0.6rem;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+  /* display: flex; */
+  gap: 0.8rem;
 }
 .interests-grid {
   display: grid;
@@ -766,7 +768,7 @@ footer {
   margin-bottom: 0.6rem;
 }
 .interest-card p {
-  color: var(--text-secondary);
+  color: #ffff;
 }
 
 .cta-section {
@@ -779,10 +781,10 @@ footer {
 .cta-title {
   font-size: 2rem;
   margin-bottom: 0.6rem;
-  color:#ffffff;
+  color:#983eec;
 }
 .cta-subtitle {
-  color: var(--text-secondary);
+  color: #e4e0f1;
   margin-bottom: 1.2rem;
 }
 .cta-btn {
@@ -897,10 +899,10 @@ body.light-mode .profile-pic {
 
 body.light-mode .submit-btn {
   color: #222 !important;
-  background: linear-gradient(45deg, #b2f0e6, #b2d8f0);
+  background: linear-gradient(45deg, #c379e3, #d5e6f0);
 }
 body.light-mode .submit-btn:hover {
-  background: linear-gradient(45deg, #a0e1d4, #a0c8e1);
+  background: linear-gradient(45deg, #c067e7, #d3e2ea);
   color: #222 !important;
 }
 
@@ -1226,7 +1228,7 @@ body.light-mode .cert-item {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  margin-top: 2rem;
+  gap: 1.25rem;
   object-fit: cover;
   position: relative;
   border: 4px solid var(--accent);
