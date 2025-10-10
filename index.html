@@ -33,24 +33,56 @@
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="profilepic.jpg" alt="Profile Picture" class="profile-pic">
-            
-            <h1>Hi, I'm <span class="highlight">Shubham Singh Rawat</span></h1>
-            <h2>Web Developer & Frontend Enthusiast</h2>
-            <p>Passionate about web development and creating engaging user experiences. Currently working with HTML5,
-                CSS3, JavaScript, Node.js, and SQL to build modern web applications.</p>
-            <div class="social-links">
-                <a href="https://github.com/ShubhamSinghRawat10" target="_blank" rel="noopener"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/shubham-singh-rawat-a31789290/" target="_blank" rel="noopener"><i
-                        class="fab fa-linkedin"></i></a>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-text">
+                    <p class="hero-greeting">Hello there, my name is</p>
+                    <h1 class="hero-name">Shubham</h1>
+                    <h2 class="hero-surname">Singh Rawat</h2>
+                    <p class="hero-title">Web Developer & Frontend Enthusiast</p>
+                </div>
+                <div class="hero-actions">
+                    <div class="action-group">
+                        <a href="#contact" class="btn-primary">Hire Me</a>
+                        <a href="https://github.com/ShubhamSinghRawat10" target="_blank" rel="noopener" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="action-group">
+                        <a href="SHUBHAMRAWAT_resume.pdf" target="_blank" class="btn-secondary">Download CV</a>
+                        <a href="https://www.linkedin.com/in/shubham-singh-rawat-a31789290/" target="_blank" rel="noopener" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="profile-container">
+                    <div class="profile-pic-wrapper">
+                        <img src="profilepic.jpg" alt="Shubham Singh Rawat" class="profile-pic">
+                        <div class="profile-decoration">
+                            <div class="decoration-circle circle-1"></div>
+                            <div class="decoration-circle circle-2"></div>
+                            <div class="decoration-circle circle-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Experience</span>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
-        <h2>About Me</h2>
+        <h2 data-text="About Me">About Me</h2>
         <div class="about-content">
             <div class="about-text">
                 <p>Hi there! I'm "Shubham Singh Rawat" , a B.Tech student and aspiring software developer with a strong passion for building modern, innovative, and impactful web solutions. I believe in the power of technology to solve real-world problems and strive to create applications that are both functional and user-friendly.
@@ -74,7 +106,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="skills" class="skills-section">
-        <h2>Skills &amp; Technologies</h2>
+        <h2 data-text="Skills & Technologies">Skills &amp; Technologies</h2>
         <p class="skills-subtitle">Here are the technologies and tools I work with to bring ideas to life.</p>
         <div class="skills-grid">
             <div class="skill-card">
@@ -192,7 +224,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="education" class="education">
-        <h2>Education</h2>
+        <h2 data-text="Education">Education</h2>
         <div class="education-content">
             <div class="edu-item">
                 <h3>Bachelor of Technology in Computer Science</h3>
@@ -206,7 +238,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="certificates" class="certificates">
-        <h2>Certificates</h2>
+        <h2 data-text="Certificates">Certificates</h2>
         <div class="certificates-content">
             <div class="cert-item">
                 <h3>Full Stack Web Development</h3>
@@ -228,7 +260,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="projects" class="projects">
-        <h2>My Projects</h2>
+        <h2 data-text="My Projects">My Projects</h2>
         <div class="project-grid">
             <div class="project-card">
                 <div class="project-image">
@@ -282,7 +314,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="interests" class="interests">
-        <h2> Interests & Goals</h2>
+        <h2 data-text="Interests & Goals"> Interests & Goals</h2>
         <div class="interests-grid">
             <div class="interest-card">
                 <h3>Web Development</h3>
@@ -306,7 +338,7 @@ When I’m not coding, you’ll find me exploring new tools and frameworks, cont
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="contact-title">Get in Touch</h2>
+        <h2 class="contact-title" data-text="Get in Touch">Get in Touch</h2>
         <p class="contact-subtitle">Let's create something amazing together!</p>
         <div class="contact-row">
             <div class="contact-card contact-info">
