@@ -151,6 +151,18 @@ window.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+  // Back to top functionality
+  const backToTopBtn = document.querySelector(".back-to-top")
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    })
+  }
+
   const skillSection = document.getElementById("skills")
   const fills = document.querySelectorAll(".progress-fill")
   if (skillSection && fills.length) {
