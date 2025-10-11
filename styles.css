@@ -1427,249 +1427,57 @@ body.light-mode .project-links .btn-github {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ===== COMPREHENSIVE RESPONSIVE DESIGN ===== */
+/* ===== CLEAN RESPONSIVE DESIGN ===== */
 
-/* Extra Large Screens (1400px+) */
-@media (min-width: 1400px) {
+/* Tablet and below */
+@media (max-width: 1024px) {
   .hero-container {
-    max-width: 1600px;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
   }
   
-  .footer-container {
-    max-width: 1400px;
-  }
-  
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 6rem 8%;
-  }
-}
-
-/* Large Screens (1200px - 1399px) */
-@media (max-width: 1399px) and (min-width: 1200px) {
-  .hero-container {
-    max-width: 1200px;
-  }
-  
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 5rem 8%;
-  }
-}
-
-/* Desktop (992px - 1199px) */
-@media (max-width: 1199px) and (min-width: 992px) {
-  .hero-container {
-    max-width: 1000px;
-    gap: 3rem;
-  }
-  
-  .hero-name {
-    font-size: 4rem;
-  }
-  
-  .hero-surname {
-    font-size: 3rem;
+  .hero-left {
+    max-width: 100%;
   }
   
   .profile-pic-wrapper {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
   
   .profile-pic {
-    width: 280px;
-    height: 280px;
+    width: 250px;
+    height: 250px;
   }
   
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 4rem 6%;
+  .hero-stats {
+    gap: 2rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .contact-row {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
-/* Tablet Landscape (768px - 991px) */
-@media (max-width: 991px) and (min-width: 768px) {
+/* Mobile */
+@media (max-width: 768px) {
   .navbar {
     padding: 0.8rem 4%;
   }
   
   .logo-image {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .hero {
-    padding: 100px 4% 40px;
-  }
-  
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 2.5rem;
-    align-items: center;
-    padding-top: 1rem;
-  }
-  
-  .hero-left {
-    max-width: 100%;
-    padding-top: 0;
-  }
-  
-  .hero-name {
-    font-size: 3.5rem;
-  }
-  
-  .hero-surname {
-    font-size: 2.8rem;
-  }
-  
-  .hero-actions {
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  
-  .profile-pic-wrapper {
-    width: 320px;
-    height: 320px;
-  }
-  
-  .profile-pic {
-    width: 260px;
-    height: 260px;
-  }
-  
-  .hero-stats {
-    gap: 2rem;
-  }
-  
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 4rem 5%;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
-  }
-  
-  .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .contact-row {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .contact-card {
-    max-width: 100%;
-  }
-}
-
-/* Tablet Portrait (576px - 767px) */
-@media (max-width: 767px) and (min-width: 576px) {
-  .navbar {
-    padding: 0.7rem 3%;
-  }
-  
-  .logo-image {
     width: 70px;
     height: 70px;
-  }
-  
-  .nav-links {
-    gap: 0.3rem;
-  }
-  
-  .nav-links a {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-  
-  .hero {
-    padding: 90px 3% 30px;
-  }
-  
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-  
-  .hero-name {
-    font-size: 3rem;
-  }
-  
-  .hero-surname {
-    font-size: 2.5rem;
-  }
-  
-  .hero-title {
-    font-size: 1.1rem;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-  }
-  
-  .action-group {
-    gap: 0.8rem;
-  }
-  
-  .profile-pic-wrapper {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .profile-pic {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .hero-stats {
-    flex-direction: row;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 3rem 4%;
-  }
-  
-  .about h2, .skills-section h2, .projects h2, .contact h2, .interests h2, .education h2, .certificates h2 {
-    font-size: 2.2rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .interests-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-  
-  .contact-row {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-
-/* Mobile Landscape (480px - 575px) */
-@media (max-width: 575px) and (min-width: 480px) {
-  .navbar {
-    padding: 0.6rem 2%;
-  }
-  
-  .logo-image {
-    width: 60px;
-    height: 60px;
   }
   
   .nav-links {
@@ -1681,19 +1489,21 @@ body.light-mode .project-links .btn-github {
   }
   
   .hero {
-    padding: 80px 2% 25px;
+    padding: 100px 4% 40px;
   }
   
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .hero-surname {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
-  .hero-title {
-    font-size: 1rem;
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
   
   .profile-pic-wrapper {
@@ -1709,134 +1519,25 @@ body.light-mode .project-links .btn-github {
   .hero-stats {
     flex-direction: column;
     gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
   }
   
   .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 2.5rem 3%;
-  }
-  
-  .about h2, .skills-section h2, .projects h2, .contact h2, .interests h2, .education h2, .certificates h2 {
-    font-size: 2rem;
+    padding: 3rem 4%;
   }
   
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: 1rem;
   }
   
   .project-grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1.5rem;
   }
   
   .interests-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-}
-
-/* Mobile Portrait (320px - 479px) */
-@media (max-width: 479px) {
-  .navbar {
-    padding: 0.5rem 2%;
-  }
-  
-  .logo-image {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .nav-links {
-    width: 90%;
-    padding-top: 60px;
-  }
-  
-  .nav-links a,
-  .nav-links .cv-btn {
-    width: 95%;
-    padding: 1rem 1.2rem;
-    font-size: 0.95rem;
-  }
-  
-  .hero {
-    padding: 70px 2% 20px;
-  }
-  
-  .hero-name {
-    font-size: 2.2rem;
-  }
-  
-  .hero-surname {
-    font-size: 1.8rem;
-  }
-  
-  .hero-title {
-    font-size: 0.95rem;
-  }
-  
-  .hero-greeting {
-    font-size: 1rem;
-  }
-  
-  .profile-pic-wrapper {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .profile-pic {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 1.2rem;
-  }
-  
-  .stat-number {
-    font-size: 1.8rem;
-  }
-  
-  .stat-label {
-    font-size: 0.9rem;
-  }
-  
-  .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 2rem 2%;
-  }
-  
-  .about h2, .skills-section h2, .projects h2, .contact h2, .interests h2, .education h2, .certificates h2 {
-    font-size: 1.8rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-  
-  .skill-card {
-    padding: 1rem;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .interests-grid {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  
-  .contact-row {
-    flex-direction: column;
-    gap: 1.2rem;
   }
   
   .contact-form-card input,
@@ -1844,56 +1545,47 @@ body.light-mode .project-links .btn-github {
     font-size: 1rem;
     padding: 1rem;
   }
-  
-  .submit-btn {
-    font-size: 1rem;
-    padding: 1rem 0;
-  }
 }
 
-/* Extra Small Devices (below 320px) */
-@media (max-width: 319px) {
+/* Small Mobile */
+@media (max-width: 480px) {
   .navbar {
-    padding: 0.4rem 1%;
+    padding: 0.6rem 2%;
   }
   
   .logo-image {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
   }
   
   .hero {
-    padding: 60px 1% 15px;
+    padding: 80px 2% 30px;
   }
   
   .hero-name {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
   
   .hero-surname {
-    font-size: 1.5rem;
-  }
-  
-  .hero-title {
-    font-size: 0.9rem;
+    font-size: 2rem;
   }
   
   .profile-pic-wrapper {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
   
   .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
   }
   
   .about, .skills-section, .projects, .contact, .interests, .education, .certificates {
-    padding: 1.5rem 1%;
+    padding: 2rem 2%;
   }
   
   .about h2, .skills-section h2, .projects h2, .contact h2, .interests h2, .education h2, .certificates h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 }
 
@@ -1911,6 +1603,10 @@ body.light-mode .project-links .btn-github {
   
   .footer-main::before {
     display: none;
+  }
+  
+  .footer-social {
+    justify-content: center;
   }
   
   .footer-links {
@@ -2191,25 +1887,24 @@ body:not(.light-mode) .burger.toggle .line3 {
   background-color: var(--accent);
 }
 
-/* Mobile Navigation Styles */
-@media screen and (max-width: 768px) {
+/* Mobile Navigation */
+@media (max-width: 768px) {
   .nav-links {
     position: fixed;
     right: -100%;
     top: 0;
     height: 100vh;
-    width: 75%;
-    background: rgba(15, 12, 41, 0.98);
+    width: 80%;
+    background: rgba(255, 255, 255, 0.98);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 80px;
-    transition: right 0.3s ease-in-out;
+    transition: right 0.3s ease;
     z-index: 1001;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
   }
 
   .nav-links.active {
@@ -2217,57 +1912,38 @@ body:not(.light-mode) .burger.toggle .line3 {
   }
 
   .nav-links li {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     width: 100%;
     text-align: center;
-    opacity: 0;
-    animation: navLinkFade 0.5s ease forwards;
   }
 
   .nav-links a,
   .nav-links .cv-btn {
     width: 90%;
     margin: 0 auto;
-    justify-content: center;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 25px;
-    font-size: 1.1rem;
-    position: relative;
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    display: block;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
-    /* Ensure links are clickable */
-    pointer-events: auto;
-    cursor: pointer;
-    z-index: 1002;
   }
 
-  body:not(.light-mode) .nav-links a {
-    color: #ffffff;
-  }
-
+  .nav-links a:hover,
   .nav-links a.active {
-    background: rgba(124, 58, 237, 0.15);
-    color: var(--accent);
-    border-bottom: 3px solid var(--accent);
-    border-color: rgba(124, 58, 237, 0.3);
-  }
-
-  .nav-links a:hover {
     background: rgba(124, 58, 237, 0.1);
-    transform: translateX(-5px);
-    border-color: rgba(124, 58, 237, 0.2);
+    color: var(--accent);
   }
 
   .nav-links .cv-btn {
     background: linear-gradient(45deg, var(--accent), var(--accent2));
     color: #fff;
-    margin-top: 2rem;
-    border: none;
+    margin-top: 1rem;
   }
 
   .nav-links .cv-btn:hover {
     background: linear-gradient(45deg, var(--accent2), var(--accent));
-    transform: translateX(-5px) scale(1.05);
   }
 
   .burger {
@@ -2287,13 +1963,6 @@ body:not(.light-mode) .burger.toggle .line3 {
   .burger.toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
     background-color: var(--accent);
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  .hero-content h2 {
-    font-size: 1.5rem;
   }
 }
 
@@ -2327,78 +1996,10 @@ body:not(.light-mode) .burger.toggle .line3 {
 
 /* ===== RESPONSIVE UTILITIES ===== */
 
-/* Hide on mobile */
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none !important;
-  }
-}
-
-/* Show only on mobile */
-@media (min-width: 769px) {
-  .mobile-only {
-    display: none !important;
-  }
-}
-
-/* Responsive text alignment */
-@media (max-width: 768px) {
-  .text-center-mobile {
-    text-align: center !important;
-  }
-}
-
-/* Responsive spacing */
-@media (max-width: 768px) {
-  .mb-mobile {
-    margin-bottom: 1rem !important;
-  }
-  
-  .mt-mobile {
-    margin-top: 1rem !important;
-  }
-  
-  .px-mobile {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-}
-
-/* Responsive flexbox */
-@media (max-width: 768px) {
-  .flex-mobile-column {
-    flex-direction: column !important;
-  }
-  
-  .flex-mobile-center {
-    justify-content: center !important;
-    align-items: center !important;
-  }
-}
-
-/* Responsive grid */
-@media (max-width: 768px) {
-  .grid-mobile-1 {
-    grid-template-columns: 1fr !important;
-  }
-}
-
 /* Responsive images */
 img {
   max-width: 100%;
   height: auto;
-}
-
-/* Responsive videos */
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Responsive iframes */
-iframe {
-  max-width: 100%;
-  width: 100%;
 }
 
 /* Touch-friendly buttons on mobile */
@@ -2406,30 +2007,6 @@ iframe {
   button, .btn, a[role="button"] {
     min-height: 44px;
     min-width: 44px;
-  }
-}
-
-/* Improved focus states for accessibility */
-@media (max-width: 768px) {
-  a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-/* Smooth scrolling for all devices */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Respect user's motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
 
