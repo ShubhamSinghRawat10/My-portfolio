@@ -1,5 +1,83 @@
+// Role text animation
+function initRoleAnimation() {
+  const roleTexts = document.querySelectorAll('.role-text');
+  let currentIndex = 0;
+  
+  if (roleTexts.length === 0) return;
+  
+  // Set initial active role
+  roleTexts[0].classList.add('active');
+  
+  function switchRole() {
+    const currentRole = roleTexts[currentIndex];
+    const nextIndex = (currentIndex + 1) % roleTexts.length;
+    const nextRole = roleTexts[nextIndex];
+    
+    // Slide out current role
+    currentRole.classList.remove('active');
+    currentRole.classList.add('slide-out');
+    
+    // After slide out completes, reset and slide in next role
+    setTimeout(() => {
+      currentRole.classList.remove('slide-out');
+      currentRole.classList.remove('active');
+      
+      nextRole.classList.add('active');
+      currentIndex = nextIndex;
+    }, 400); // Half of the transition duration
+  }
+  
+  // Start the animation cycle
+  setInterval(switchRole, 3000); // Change role every 3 seconds
+}
+
+// Scroll-triggered animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Add animation classes to elements
+  const animatedElements = [
+    { selector: '.about', class: 'fade-in-up' },
+    { selector: '.skills-section', class: 'fade-in-up' },
+    { selector: '.education', class: 'fade-in-left' },
+    { selector: '.certificates', class: 'fade-in-right' },
+    { selector: '.projects', class: 'fade-in-up' },
+    { selector: '.interests', class: 'fade-in-up' },
+    { selector: '.contact', class: 'fade-in-up' },
+    { selector: '.skill-card', class: 'scale-in' },
+    { selector: '.project-card', class: 'scale-in' },
+    { selector: '.interest-card', class: 'scale-in' },
+    { selector: '.edu-item', class: 'fade-in-left' },
+    { selector: '.cert-item', class: 'fade-in-right' }
+  ];
+
+  animatedElements.forEach(({ selector, class: animationClass }) => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(element => {
+      element.classList.add(animationClass);
+      observer.observe(element);
+    });
+  });
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize role animation
+  initRoleAnimation();
+  
+  // Initialize scroll animations
+  initScrollAnimations();
   const burger = document.querySelector(".burger")
   const nav = document.querySelector(".nav-links")
   const navLinks = document.querySelectorAll(".nav-links li")
